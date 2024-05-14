@@ -4,12 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Thirukkural</title>
+    <style>
+        body{
+            background-color: #f3b884;
+        }
+        .meaning {
+            margin-top: 5px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <h1>Random Thirukkural</h1>
-    <p>
-        <strong>Chapter {{ random_kural.chapter_number }} - Kural {{ random_kural.couplet_number }}:</strong> {{ random_kural.couplet_text }} - {{ random_kural.meaning }}
-    </p>
-    <a href="/">Back to Home</a>
+    <center>
+    <div class="container">
+        <h1>Random Thirukkural</h1>
+        <div class="kural-result">
+            <strong>Chapter {{ random_kural.chapter_number }} - Kural {{ random_kural.couplet_number }}:</strong>
+            <div>{{ random_kural.couplet_text | split_couplet }}</div>
+            <div class="meaning">{{ random_kural.meaning }}</div>
+        </div>
+        <a href="/">Back to Home</a>
+    </div>
+</center>
 </body>
 </html>
