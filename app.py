@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from jinja2 import Environment, select_autoescape
 
 app = Flask(__name__)
 app.secret_key = 'DJ'
@@ -28,5 +29,16 @@ def random_kural():
     random_kural = Kural.query.order_by(db.func.random()).first()
     return render_template('random_kural.html', random_kural=random_kural)
 
+# Define a custom filter to split the couplet text
+def split_couplet(couplet_text):
+    words = couplet_text.split()
+    first_line = ' '.join(words[:4])
+    second_line = ' '.join(words[4:])
+    return f'{first_line}<br>{second_line}'
+
+# Register the custom filter
+app.jinja_env.filters['split_couplet'] = split_couplet
+
 if __name__ == '__main__':
     app.run(debug=True)
+
