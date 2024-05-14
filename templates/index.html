@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thirukkural Search</title>
+    <style>
+        .thirukural{
+            height: 200px;
+            width: 200px; 
+            border-color: #22295d;
+            border-width: 5px;
+            border-style: double;
+            
+            
+        }
+        
+        body {
+            background-color: #f3b884; /* Light gray background color */
+            font-family: Arial, sans-serif; /* Optional: Set a default font */
+        }
+        .welcome{
+            text-align: center;color: #22295d;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size: 2.5em;
+            font-weight: bold; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+            letter-spacing: 2px; 
+            margin-bottom: 20px; 
+        }
+        .label{
+            font-family:Georgia, 'Times New Roman', Times, serif; font-weight: bold; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+        }
+        .random{
+            font-family:Georgia, 'Times New Roman', Times, serif; font-weight: bold; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+        }
+    </style>
+</head>
+<body >
+    <center>
+    <div >
+        <h1 class = welcome >Welcome to Thirukkural Search</h1>
+        <img class= thirukural src="{{ url_for('static', filename='images/thirukural2.jpg') }}" alt="Thirukkural Background">
+        <form action="/search" method="post">
+            <label class = label for="keyword" >Enter Your keyword here:</label>
+            <input type="text" id="keyword" name="keyword" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <a class = random href="/random">Click for Random Thirukkural</a>
+</center>
+</body>
+</html>

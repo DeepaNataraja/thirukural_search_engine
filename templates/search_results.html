@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for "{{ keyword }}"</h1>
+    <ul>
+        {% for kural in kural_results %}
+            <li>
+                <strong>Chapter {{ kural.chapter_number }} - Kural {{ kural.couplet_number }}:</strong> {{ kural.couplet_text }} - {{ kural.meaning }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>
